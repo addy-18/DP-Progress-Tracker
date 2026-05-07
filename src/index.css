@@ -1,0 +1,151 @@
+:root {
+  --bg-main: #0a0a0f;
+  --bg-card: rgba(22, 27, 34, 0.6);
+  --bg-card-hover: rgba(33, 38, 45, 0.8);
+  --border: rgba(48, 54, 61, 0.5);
+  --text-main: #e0e0e0;
+  --text-muted: #8b949e;
+  --accent-green: #00ff88;
+  --accent-blue: #00d4ff;
+  --accent-purple: #a29bfe;
+  --accent-orange: #fdcb6e;
+  --accent-red: #ff4757;
+  --glass-bg: rgba(13, 17, 23, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background-color: var(--bg-main);
+  background-image: radial-gradient(circle at top right, rgba(0, 212, 255, 0.05), transparent 400px),
+                    radial-gradient(circle at top left, rgba(0, 255, 136, 0.03), transparent 400px);
+  color: var(--text-main);
+  line-height: 1.5;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-main);
+}
+::-webkit-scrollbar-thumb {
+  background: #30363d;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #4b5563;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+input, textarea {
+  font-family: inherit;
+}
+
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+/* Badge specific styles */
+.badge {
+  font-size: 0.65rem;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Typography Helpers */
+.gradient-text {
+  background: linear-gradient(90deg, var(--accent-green), var(--accent-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  .header-content {
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: 16px;
+  }
+
+  .filters-container {
+    flex-direction: column;
+    align-items: stretch !important;
+  }
+
+  .search-input {
+    width: 100% !important;
+  }
+
+  .modal-content {
+    width: 100% !important;
+    height: 100% !important;
+    max-height: 100% !important;
+    border-radius: 0 !important;
+  }
+
+  .problem-row {
+    padding: 12px 8px !important;
+    flex-wrap: wrap;
+    gap: 8px !important;
+  }
+
+  .problem-name {
+    width: 100%;
+    order: 1;
+    margin-bottom: 4px;
+  }
+
+  .problem-badges {
+    order: 2;
+    margin-left: 30px !important;
+  }
+
+  .section-header {
+    padding: 12px !important;
+  }
+
+  .section-stats {
+    display: none !important; /* Hide small progress bars on mobile section headers to save space */
+  }
+}
